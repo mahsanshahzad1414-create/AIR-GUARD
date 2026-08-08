@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AirGuard</title>
+</head>
+
+<body>
+
+  <h1>🌍 AirGuard</h1>
+
+  <p>
+    Environmental intelligence for healthier decisions.
+  </p>
+
+  <hr>
+
+  <h2>📍 Check Your Environment</h2>
+
+  <input
+    type="text"
+    id="location"
+    placeholder="Enter city, e.g. Multan, Pakistan"
+  >
+
+  <button onclick="checkLocation()">
+    Check Environment
+  </button>
+
+  <div id="result"></div>
+
+  <hr>
+
+  <h2>🌫️ Air Quality</h2>
+
+  <p>PM2.5: —</p>
+  <p>PM10: —</p>
+  <p>NO₂: —</p>
+  <p>O₃: —</p>
+
+  <h2>🌦️ Weather</h2>
+
+  <p>Temperature: —</p>
+  <p>Humidity: —</p>
+  <p>Wind: —</p>
+
+  <h2>📚 Education Board</h2>
+
+  <h3>PM2.5</h3>
+  <p>
+    Learn what fine particulate matter is, where it comes from,
+    and why exposure can matter.
+  </p>
+
+  <h3>PM10</h3>
+  <p>
+    Learn what larger airborne particles are and their common sources.
+  </p>
+
+  <h3>NO₂</h3>
+  <p>
+    Learn about nitrogen dioxide and its major environmental sources.
+  </p>
+
+  <h3>O₃</h3>
+  <p>
+    Learn about ground-level ozone and how it forms.
+  </p>
+
+  <h2>🛡️ What Should You Do?</h2>
+
+  <p>
+    AirGuard will provide practical guidance based on
+    verified environmental information.
+  </p>
+
+  <script>
+    function checkLocation() {
+      const location =
+        document.getElementById("location").value;
+
+      if (!location) {
+        alert("Please enter a location.");
+        return;
+      }
+
+      document.getElementById("result").innerHTML =
+        "<h3>Location selected:</h3><p>" +
+        location +
+        "</p>";
+    }
+  </script>
+
+</body>
+</html>
