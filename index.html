@@ -3,94 +3,194 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AirGuard</title>
+
+  <title>AIR-GUARD | Environmental Intelligence</title>
+
+  <meta name="description"
+    content="AIR-GUARD turns verified environmental data into understandable pollution risks, education and practical actions.">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <h1>🌍 AirGuard</h1>
+<header>
+  <h1>🌍 AIR-GUARD</h1>
+  <p>Environmental Intelligence for Healthier Decisions</p>
+</header>
 
+<main>
+
+  <section class="card">
+    <h2>📍 Check Your Environment</h2>
+
+    <p>
+      Enter a city or area to analyze environmental conditions.
+    </p>
+
+    <input
+      type="text"
+      id="location"
+      placeholder="Enter city or area, e.g. Multan, Pakistan"
+      autocomplete="off"
+    >
+
+    <button onclick="checkLocation()">
+      Analyze Environment
+    </button>
+
+    <div id="result"></div>
+  </section>
+
+
+  <section class="card">
+    <h2>🌫️ Air Quality</h2>
+
+    <div class="grid">
+
+      <div>
+        <h3>PM2.5</h3>
+        <p class="metric" id="pm25">—</p>
+        <p>Fine particulate matter</p>
+      </div>
+
+      <div>
+        <h3>PM10</h3>
+        <p class="metric" id="pm10">—</p>
+        <p>Coarse particulate matter</p>
+      </div>
+
+      <div>
+        <h3>NO₂</h3>
+        <p class="metric" id="no2">—</p>
+        <p>Nitrogen dioxide</p>
+      </div>
+
+      <div>
+        <h3>O₃</h3>
+        <p class="metric" id="o3">—</p>
+        <p>Ground-level ozone</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="card">
+    <h2>🌦️ Weather & Environmental Conditions</h2>
+
+    <div class="grid">
+
+      <div>
+        <h3>Temperature</h3>
+        <p class="metric" id="temperature">—</p>
+      </div>
+
+      <div>
+        <h3>Humidity</h3>
+        <p class="metric" id="humidity">—</p>
+      </div>
+
+      <div>
+        <h3>Wind</h3>
+        <p class="metric" id="wind">—</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="card">
+    <h2>⚠️ Environmental Risk</h2>
+
+    <p id="riskLevel" class="metric">
+      Awaiting environmental data
+    </p>
+
+    <p id="riskExplanation">
+      Enter a location to generate an environmental assessment.
+    </p>
+  </section>
+
+
+  <section class="card">
+    <h2>🛡️ What Should You Do?</h2>
+
+    <div id="actions">
+      <p>
+        AIR-GUARD will provide practical recommendations
+        after verified environmental data is available.
+      </p>
+    </div>
+  </section>
+
+
+  <section class="card education">
+
+    <h2>📚 Environmental Education Board</h2>
+
+    <h3>PM2.5</h3>
+    <p>
+      PM2.5 refers to very small airborne particles that can
+      penetrate deep into the respiratory system.
+    </p>
+
+    <h3>PM10</h3>
+    <p>
+      PM10 consists of inhalable particles such as dust,
+      construction particles and other airborne material.
+    </p>
+
+    <h3>NO₂</h3>
+    <p>
+      Nitrogen dioxide is commonly associated with combustion
+      processes, especially traffic and fuel burning.
+    </p>
+
+    <h3>O₃</h3>
+    <p>
+      Ground-level ozone is a secondary pollutant formed through
+      chemical reactions involving sunlight and precursor pollutants.
+    </p>
+
+    <p class="source">
+      Educational information will be linked to authoritative
+      environmental and public-health sources.
+    </p>
+
+  </section>
+
+
+  <section class="card">
+
+    <h2>🔎 Data Transparency</h2>
+
+    <p>
+      AIR-GUARD is designed to distinguish measured environmental
+      observations from explanations and recommendations.
+    </p>
+
+    <p id="dataSource" class="source">
+      Data source: Awaiting live connection
+    </p>
+
+    <p id="lastUpdated" class="source">
+      Last updated: —
+    </p>
+
+  </section>
+
+</main>
+
+
+<footer>
   <p>
-    Environmental intelligence for healthier decisions.
+    AIR-GUARD — Environmental intelligence for healthier decisions.
   </p>
+</footer>
 
-  <hr>
 
-  <h2>📍 Check Your Environment</h2>
-
-  <input
-    type="text"
-    id="location"
-    placeholder="Enter city, e.g. Multan, Pakistan"
-  >
-
-  <button onclick="checkLocation()">
-    Check Environment
-  </button>
-
-  <div id="result"></div>
-
-  <hr>
-
-  <h2>🌫️ Air Quality</h2>
-
-  <p>PM2.5: —</p>
-  <p>PM10: —</p>
-  <p>NO₂: —</p>
-  <p>O₃: —</p>
-
-  <h2>🌦️ Weather</h2>
-
-  <p>Temperature: —</p>
-  <p>Humidity: —</p>
-  <p>Wind: —</p>
-
-  <h2>📚 Education Board</h2>
-
-  <h3>PM2.5</h3>
-  <p>
-    Learn what fine particulate matter is, where it comes from,
-    and why exposure can matter.
-  </p>
-
-  <h3>PM10</h3>
-  <p>
-    Learn what larger airborne particles are and their common sources.
-  </p>
-
-  <h3>NO₂</h3>
-  <p>
-    Learn about nitrogen dioxide and its major environmental sources.
-  </p>
-
-  <h3>O₃</h3>
-  <p>
-    Learn about ground-level ozone and how it forms.
-  </p>
-
-  <h2>🛡️ What Should You Do?</h2>
-
-  <p>
-    AirGuard will provide practical guidance based on
-    verified environmental information.
-  </p>
-
-  <script>
-    function checkLocation() {
-      const location =
-        document.getElementById("location").value;
-
-      if (!location) {
-        alert("Please enter a location.");
-        return;
-      }
-
-      document.getElementById("result").innerHTML =
-        "<h3>Location selected:</h3><p>" +
-        location +
-        "</p>";
-    }
-  </script>
+<script src="script.js"></script>
 
 </body>
-</html>
+    </html>
