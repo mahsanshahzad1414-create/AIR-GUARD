@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071a2d">
+  <meta name="description" content="AIR-GUARD — AI-powered environmental intelligence platform.">
+  <title>AIR-GUARD — Environmental Intelligence</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="bg-grid"></div>
+<div class="ambient ambient-a"></div>
+<div class="ambient ambient-b"></div>
+
+<header class="topbar">
+
+  <a class="brand" href="#">
+    <span class="brand-mark">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+
+    <span>AIR<span>-GUARD</span></span>
+  </a>
+
+  <div class="header-actions">
+    <span class="live-dot">
+      <i></i> LIVE DATA
+    </span>
+
+    <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
+      ☾
+    </button>
+  </div>
+
+</header>
+
+
+<main class="shell">
+
+<section class="hero">
+
+  <div>
+
+    <p class="eyebrow">
+      ENVIRONMENTAL INTELLIGENCE
+    </p>
+
+    <h1>
+      Know the air.<br>
+      <em>Protect your day.</em>
+    </h1>
+
+    <p class="hero-copy">
+      Real-time pollution intelligence translated into clear risk levels,
+      weather context and practical health actions.
+    </p>
+
+  </div>
+
+  <div class="hero-badge">
+
+    <span class="shield">✓</span>
+
+    <div>
+      <strong>GUARD MODE</strong>
+      <small>Personalized insights enabled</small>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="search-panel glass">
+
+  <div class="search-wrap">
+
+    <span class="search-icon">⌕</span>
+
+    <input
+      id="locationInput"
+      autocomplete="off"
+      placeholder="Search a city, e.g. Lahore, Islamabad, London..."
+      aria-label="Search location"
+    >
+
+    <button id="searchBtn" class="search-btn">
+      Analyze
+    </button>
+
+  </div>
+
+  <button id="locateBtn" class="locate-btn">
+    ◎ <span>Use my location</span>
+  </button>
+
+  <div id="suggestions" class="suggestions"></div>
+
+</section>
+
+
+<div id="errorBox" class="error-box" hidden></div>
+
+
+<section id="loading" class="loading glass">
+
+  <div class="spinner"></div>
+
+  <div>
+    <strong>Scanning atmosphere…</strong>
+    <span>Fetching air quality and weather intelligence</span>
+  </div>
+
+</section>
+
+
+<section id="dashboard" hidden>
+
+  <div class="location-row">
+
+    <div>
+
+      <p class="eyebrow">
+        CURRENT ANALYSIS
+      </p>
+
+      <h2 id="locationName">—</h2>
+
+      <p id="updatedAt" class="muted">
+        —
+      </p>
+
+    </div>
+
+    <div class="data-source">
+      Open environmental models · refreshed automatically
+    </div>
+
+  </div>
+
+
+  <div class="dashboard-grid">
+
+
+    <article class="aqi-card glass">
+
+      <div class="card-top">
+
+        <span>AIR QUALITY INDEX</span>
+
+        <span class="status-pill" id="aqiStatus">
+          —
+        </span>
+
+      </div>
+
+
+      <div class="aqi-main">
+
+        <div class="gauge" id="gauge">
+
+          <div class="gauge-inner">
+
+            <strong id="aqiValue">—</strong>
+
+            <small>US AQI</small>
+
+          </div>
+
+        </div>
+
+
+        <div class="aqi-copy">
+
+          <h3 id="riskTitle">
+            —
+          </h3>
+
+          <p id="riskText">
+            —
+          </p>
+
+          <div class="risk-bar">
+            <span id="riskBar"></span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="card-footer">
+
+        <span>Low</span>
+        <span>Moderate</span>
+        <span>Unhealthy</span>
+        <span>Hazardous</span>
+
+      </div>
+
+    </article>
+
+
+
+    <article class="weather-card glass">
+
+      <div class="card-top">
+
+        <span>WEATHER CONTEXT</span>
+
+        <span id="weatherIcon" class="weather-icon">
+          ☁
+        </span>
+
+      </div>
+
+
+      <div class="weather-main">
+
+        <strong id="temperature">
+          —
+        </strong>
+
+        <span>°C</span>
+
+      </div>
+
+
+      <p id="weatherText" class="weather-desc">
+        —
+      </p>
+
+
+      <div class="weather-stats">
+
+        <div>
+          <span>Humidity</span>
+          <strong id="humidity">—</strong>
+        </div>
+
+        <div>
+          <span>Wind</span>
+          <strong id="wind">—</strong>
+        </div>
+
+        <div>
+          <span>UV Index</span>
+          <strong id="uv">—</strong>
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+
+
+  <div class="section-heading">
+
+    <div>
+
+      <p class="eyebrow">
+        POLLUTANT PROFILE
+      </p>
+
+      <h3>
+        What’s in the air?
+      </h3>
+
+    </div>
+
+    <span class="muted">
+      Current concentration · μg/m³
+    </span>
+
+  </div>
+
+
+  <div class="pollutants" id="pollutants"></div>
+
+
+
+  <div class="section-heading">
+
+    <div>
+
+      <p class="eyebrow">
+        AI HEALTH BRIEF
+      </p>
+
+      <h3>
+        What should you do?
+      </h3>
+
+    </div>
+
+    <span class="muted">
+      Risk-aware recommendations
+    </span>
+
+  </div>
+
+
+  <div class="advice-grid" id="adviceGrid"></div>
+
+
+
+  <div class="section-heading forecast-heading">
+
+    <div>
+
+      <p class="eyebrow">
+        NEXT 24 HOURS
+      </p>
+
+      <h3>
+        Pollution outlook
+      </h3>
+
+    </div>
+
+    <div class="legend">
+      <span>
+        <i></i> AQI forecast
+      </span>
+    </div>
+
+  </div>
+
+
+  <article class="chart-card glass">
+
+    <div class="chart" id="chart"></div>
+
+    <div class="chart-labels" id="chartLabels"></div>
+
+  </article>
+
+
+
+  <div class="bottom-grid">
+
+    <article class="glass info-card">
+
+      <div class="info-icon">
+        ✦
+      </div>
+
+      <div>
+
+        <h4>
+          How AIR-GUARD works
+        </h4>
+
+        <p>
+          We combine modeled air-quality and weather signals,
+          then translate them into a simple risk score and
+          actionable guidance. This is an environmental
+          awareness tool, not a medical diagnosis.
+        </p>
+
+      </div>
+
+    </article>
+
+
+    <article class="glass info-card">
+
+      <div class="info-icon">
+        ⌁
+      </div>
+
+      <div>
+
+        <h4>
+          Data transparency
+        </h4>
+
+        <p>
+          Air-quality and weather values are supplied by
+          Open-Meteo environmental models. Local measurements
+          can differ from modeled conditions.
+        </p>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <span>
+    © 2026 AIR-GUARD
+  </span>
+
+  <span>
+    Built for clearer environmental decisions.
+  </span>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+    </html>
